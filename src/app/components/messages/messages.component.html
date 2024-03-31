@@ -1,0 +1,13 @@
+<div class="w-full flex justify-between ">
+<div class="chat chat-start text-xl " style="max-width: 50%;">
+    @for(message of messagesFromOtherUsers; track message){
+        <div class="chat-bubble" style="word-wrap: break-word;"></div>
+    }
+    
+  </div>
+  <div class="chat chat-end text-xl" style="max-width: 50%;">
+    @for(message of messages; track message){
+        <div class="chat-bubble mt-5 " style="word-wrap: break-word;">{{message}}</div>
+    }
+  </div>
+</div>

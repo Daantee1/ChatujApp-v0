@@ -1,0 +1,48 @@
+@if(!searchPerson){
+
+<div class="mt-10 ml-10 mr-10 rounded h-custom">
+  <div class="w-full h-full flex justify-center items-center p-5">
+    <button
+      class="btn btn-ghost w-52 h-52 p-5"
+      [ngClass]="{ effect: searchPersonEffect }"
+      (click)="searchingPerson()"
+    >
+      <img src="./assets/search.png" class="h-32 w-32" (click)="isLoggedIn()" />
+
+      @if(!searchPersonEffect ){
+      <span class="text-lg mb-10">Wyszukaj osobę</span>
+      } @if(searchPersonEffect){
+      <span class="text-lg mb-10">Szukanie...</span>
+      }
+    </button>
+  </div>
+</div>
+} @if(searchPerson){
+
+<div class="border bg-base-200 mt-10 ml-10 mr-10 rounded h-custom relative">
+  <div class="absolute right-0 p-2">
+    <img src="./assets/refresh.png" class="h-11 w-11" alt="" />
+  </div>
+  <div class="w-full h-full absolute flex justify-center items-center">
+    <img src="./assets/search.png" class="h-32 w-32 absolute filter blur-2xl" />
+    <img src="./assets/live-chat.png" class="h-16 w-16 opacity-45" alt="" />
+  </div>
+  <div class="absolute flex items-end w-full h-full ">
+    <app-messages class="w-full mb-28" [messages]="messages"></app-messages>
+  </div>
+  <div class="w-full h-full flex justify-center items-end p-5 absolute">
+    <input
+      type="text"
+      placeholder="Pisz tutaj!"
+      class="input input-bordered text-lg input-info w-full"
+      [(ngModel)]="message"
+    />
+    <button
+      class="btn btn-active btn-accent font-bold tracking-wider ml-1 text-gray-300"
+      (click)="sendMessage()"
+    >
+      WYŚLIJ
+    </button>
+  </div>
+</div>
+}

@@ -1,0 +1,76 @@
+<div class="h-custom w-full flex justify-center items-center">
+  <div class=" w-80">
+    <h3 class="font-semibold text-2xl text-center mb-5 tracking-wider">
+      DANE UŻYTKOWNIKA
+    </h3>
+    <form action="" (ngSubmit)="addUserDetails()">
+      <div class="form-control flex justify-between mb-5">
+        <p class="text-center text-lg">Wybierz płeć</p>
+        <label class="label cursor-pointer">
+          <span class="label-text">Mężczyzna</span>
+          <input type="radio" name="gender" value="male" [(ngModel)]="profile.gender" class="radio" />
+        </label>
+        <label class="label cursor-pointer">
+          <span class="label-text">Kobieta</span>
+          <input type="radio" name="gender" value="female" [(ngModel)]="profile.gender" class="radio" />
+        </label>
+      </div>
+      <select class="select select-bordered w-full max-w-xs mb-5" [(ngModel)]="profile.province" name="province" required>
+        <option disabled selected>Województwo</option>
+        <option>Dolnośląskie</option>
+        <option>Kujawsko-Pomorskie</option>
+        <option>Łódzkie</option>
+        <option>Lubelskie</option>
+        <option>Lubuskie</option>
+        <option>Małopolskie</option>
+        <option>Mazowieckie</option>
+        <option>Opolskie</option>
+        <option>Podkarpackie</option>
+        <option>Podlaskie</option>
+        <option>Pomorskie</option>
+        <option>Śląskie</option>
+        <option>Świętokrzyskie</option>
+        <option>Warmińsko-Mazurskie</option>
+        <option>Wielkopolskie</option>
+        <option>Zachodniopomorskie</option>
+      </select>
+      <label class="input input-bordered flex items-center gap-2 mb-5" mb-5>
+        <input type="name" class="grow" placeholder="Wiek" name="age" required maxlength="2"
+        [(ngModel)]="profile.age" />
+      </label>
+      <p class="text-center text-lg mb-2">Twoje hobby</p>
+      <div class="flex justify-between">
+        <label class="input input-bordered flex items-center gap-2 mb-5">
+          <input
+            type="name"
+            name="hobby"
+            class=""
+            placeholder="Wpisz swoje hobby"
+            maxlength="10"
+            required
+            [(ngModel)]="hobby"
+            required
+          />
+        </label>
+        <button type="button" class="btn btn-accent" (click)="addHobbies()">
+          Dodaj
+        </button>
+      </div>
+      @if (hobbies.length > 0) {
+      <div class="flex flex-col   border border-base-200 bg-base-200 rounded p-3">
+        @for (hobby of hobbies; track hobby) {
+            <div class="flex w-full items-center">
+        <button class="btn btn-neutral w-fit mb-3">{{ hobby }}</button>
+        <img src="./assets/x-button.png" class="h-8 w-8 ml-auto cursor-pointer" (click)="deleteHobby(hobby)" alt="">
+    </div>
+        }
+       
+        
+      </div>
+    }
+      <div class="flex justify-end items-center mt-5 mb-5">
+        <button type="submit" class="btn btn-success">Zarejestruj się</button>
+      </div>
+    </form>
+  </div>
+</div>

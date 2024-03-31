@@ -1,0 +1,70 @@
+
+@if(!loggedIn){
+
+
+<div class="navbar bg-base-100 mt-2">
+    <div class="flex-1">
+      <a [routerLink]="'/home'" class="btn btn-ghost md:text-3xl text-xl font-bold tracking-wider"><img src="./assets/live-chat.png" class="h-11 w-11" alt="">CHATUJ </a>
+    </div>
+    
+    <div class="flex-none">
+      <div class="mr-5">
+          <ul class="">
+              <li >
+                <button class="btn btn-ghost md:text-lg text-base" [routerLink]="'/home'">Strona główna</button>
+              </li>
+          </ul>
+      </div>
+  
+      <div class="dropdown dropdown-end mr-8">
+        <button class="btn btn-info md:text-lg text-base" [routerLink]="'/login-page'">Zaloguj się</button>
+      
+      </div>
+    </div>
+  </div>
+}
+@if(loggedIn){
+
+
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-2xl font-bold tracking-wider"><img src="./assets/live-chat.png" class="h-11 w-11" alt="">CHATUJ </a>
+  </div>
+  
+  <div class="flex-none">
+    <div class="mr-5">
+        <ul class="">
+            <li >
+              <button class="btn btn-ghost md:text-lg text-base" [routerLink]="'/home'">Strona główna</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="dropdown dropdown-end">
+        
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full">
+          <img
+            alt="Tailwind CSS Navbar component"
+            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+          />
+        </div>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+      >
+      
+        <li>
+          <a class="justify-between">
+            Profil
+            <span class="badge">New</span>
+          </a>
+        </li>
+        <li><a>Ustawienia</a></li>
+        <li><a (click)="logOut()">Wyloguj się </a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+}
